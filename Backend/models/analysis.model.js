@@ -1,5 +1,17 @@
 import mongoose from "mongoose";
 
+const messageSchama = new mongoose.Schema({
+    role: {
+        type: String,
+        enum: ["user", "assistent"],
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    },
+},  { timestamps: true });
+
 const analysisSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -9,10 +21,24 @@ const analysisSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    analysis: {
+    title: {
         type: String,
         required: true
-    }
+    },
+    explanation: {
+        type: String,
+        required: true
+    },
+    structuredData: {
+        disease: String,
+        confidence: String,
+        cause: String,
+        treatment: String,
+        prevention: String,
+        medicine: String
+    },
+
+    message: [messageSchama]
 }, { timestamps: true });
 
 export default mongoose.model("Analysis", analysisSchema);
