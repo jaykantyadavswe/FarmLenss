@@ -46,19 +46,6 @@ export default function LandingPage() {
       </section>
       <WhyFarmLens/>
       <HowItWorks/>
-
-      {/* <section className="py-20 text-center bg-green-600 text-white">
-        <h2 className="text-3xl font-bold">
-          Start Protecting Your Crops Today 🌱
-        </h2>
-
-        <button
-          onClick={() => router.push("/register")}
-          className="mt-6 bg-white text-green-600 px-6 py-3 rounded text-lg cursor-pointer"
-        >
-          Get Started
-        </button>
-      </section> */}
       <CTASection/>
 
       <footer className="text-center py-6 text-gray-500">
