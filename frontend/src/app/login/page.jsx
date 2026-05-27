@@ -36,11 +36,14 @@ function LoginPage() {
         localStorage.setItem("token", data.token);
 
         window.location.href = '/dashboard';
-
-        console.log(data);
     };
 
     const handleRegister = async () => {
+        if (!email || !password || !name) {
+            alert("All fields required");
+            return;
+        }
+
         try {
             const res = await fetch("http://localhost:8080/register", {
                 method: "POST",
@@ -51,12 +54,6 @@ function LoginPage() {
             });
 
             const data = await res.json();
-            console.log(data);
-
-            if (!email || !password || !name) {
-                alert("All fields required");
-                return;
-            }
 
             if (data.success) {
                 alert("User Registered Successfully...")

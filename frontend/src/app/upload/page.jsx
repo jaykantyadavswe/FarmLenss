@@ -7,12 +7,17 @@ export default function UploadPage() {
   const [result, setResult] = useState(null);
 
   const handleUpload = async () => {
+    if (!file) {
+      alert("Please select a crop image first");
+      return;
+    }
+
     const token = localStorage.getItem("token");
 
     const formData = new FormData();
     formData.append("media", file);
 
-    const res = await fetch("http://localhost:8080/upload", {
+    const res = await fetch("http://localhost:8080/crop/analyze", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`
@@ -41,11 +46,14 @@ export default function UploadPage() {
       </button>
 
       {result && (
-        <div className="mt-6">
-          <img src={result.imageUrl} width={200} />
-          <p>Crop: {result.analysis.crop}</p>
-          <p>Disease: {result.analysis.disease}</p>
-          <p>Solution: {result.analysis.solution}</p>
+        <div className="mt-6 ml-3">
+          {result.analysis?.imageUrl && (
+            <img src={result.analysis.imageUrl} width={200} alt="Analyzed crop" />
+          )}
+          <p>Title: {result.analysis?.title}</p>
+          <p>Disease: {result.analysis?.structuredData?.disease}</p>
+          <p>Treatment: {result.analysis?.structuredData?.treatment}</p>
+          <p>Explanation: {result.analysis?.explanation}</p>
         </div>
       )}
     </div>
