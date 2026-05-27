@@ -1,5 +1,6 @@
 import express from 'express';
-import { ActiveCheck, login, register } from '../controllers/user.controller.js';
+import { ActiveCheck, login, profile, register } from '../controllers/user.controller.js';
+import { protect } from '../middleware/auth.middleware.js';
 
 const router = express.Router();
 
@@ -7,5 +8,6 @@ const router = express.Router();
 
 router.route('/register').post(register);
 router.route('/login').post(login);
+router.route('/profile').get(protect, profile);
 
 export default router;

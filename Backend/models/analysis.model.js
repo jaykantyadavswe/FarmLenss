@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const messageSchama = new mongoose.Schema({
+const messageSchema = new mongoose.Schema({
     role: {
         type: String,
-        enum: ["user", "assistent"],
+        enum: ["user", "assistant"],
         required: true
     },
     content: {
@@ -38,7 +38,7 @@ const analysisSchema = new mongoose.Schema({
         medicine: String
     },
 
-    message: [messageSchama]
+    messages: [messageSchema]
 }, { timestamps: true });
 
 export default mongoose.model("Analysis", analysisSchema);

@@ -40,36 +40,8 @@ export const analyzeCrop = async (req, res) => {
         }
 
         const userText = req.body.text || "";
-        console.log(userText);
 
         const base64Image = readFileAsBase64(req.file.path);
-
-        /* const result = await model.generateContent([
-            {
-                inlineData: {
-                    mimeType: req.file.mimetype,
-                    data: base64Image
-                }
-            },
-            {
-                text: `
-                    You are an expert agricultural AI.
-
-                    First, carefully analyze the crop image.
-
-                    Then respond in this structured format:
-                    1. Disease Name (if any)
-                    2. Confidence Level (Low/Medium/High)
-                    3. Cause of Disease
-                    4. Suggested Treatment
-                    5. Prevention Tips
-                    6. Recommended Medicine
-
-                    Now also consider the user's question: "${userText}"
-
-                    If the user asks something specific, prioritize answering that along with the analysis.`
-            }
-        ]); */
 
         const analysis = await analyzeImageWithAI(
             base64Image,
@@ -97,9 +69,6 @@ export const analyzeCrop = async (req, res) => {
                 }
             };
         }
-
-        console.log(clean);
-        console.log(parsed);
 
         const cloudResult = await uploadToCloud(req.file.path);
 
@@ -140,20 +109,31 @@ export const chatWithAi = async (req, res) => {
     try {
         const { message, analysisId } = req.body;
 
-        const analysis = await Analysis.findById(analysisId);
+        if (!message || !analysisId) {
+            return res.status(400).json({
+                success: false,
+                message: "Message and analysisId are required"
+            });
+        }
+
+        const analysis = await Analysis.findOne({
+            _id: analysisId,
+            user: req.user.id
+        });
 
         if (!analysis) {
             return res.status(404).json({
+                success: false,
                 message: "Analysis not found"
             })
         }
 
-        analysis.message.push({
+        analysis.messages.push({
             role: "user",
             content: message
         });
 
-        const history = analysis.message.map(msg => ({
+        const history = analysis.messages.map(msg => ({
             role: msg.role === "user" ? "user" : "model",
             parts: [{ text: msg.content }]
         }));
@@ -166,7 +146,7 @@ export const chatWithAi = async (req, res) => {
 
         const reply = result.response.text();
 
-        analysis.message.push({
+        analysis.messages.push({
             role: "assistant",
             content: reply
         });

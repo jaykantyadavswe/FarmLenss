@@ -24,6 +24,7 @@ export const analyzeImageWithAI = async (base64Image, mimeType, userText) => {
             {
                 "explanation": "Full detailed explanation here...",
                 "data": {
+                "crop_name": "",
                 "title": "",
                 "disease": "",
                 "confidence": "",

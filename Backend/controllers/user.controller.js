@@ -8,7 +8,6 @@ export const ActiveCheck = (req, res) => {
 };
 
 export const register = async (req, res) => {
-    console.log(req.body);
     try {
         const { name, email, password } = req.body;
 
@@ -22,7 +21,6 @@ export const register = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        console.log(hashedPassword);
 
         const newUser = new User({
             name, email, password: hashedPassword
@@ -32,7 +30,11 @@ export const register = async (req, res) => {
 
         res.status(201).json({
             success: true,
-            newUser,
+            user: {
+                id: newUser._id,
+                name: newUser.name,
+                email: newUser.email
+            },
             message: "User Created"
         });
     } catch (err) {
@@ -41,7 +43,6 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-    console.log(req.body);
     try {
         const { email, password } = req.body;
 
@@ -64,9 +65,6 @@ export const login = async (req, res) => {
             { expiresIn: "7d" }
         );
 
-        console.log("SECRET:", process.env.JWT_SECRET);
-        console.log("USER:", user);
-
         res.json({
             success: true,
             token,
@@ -80,4 +78,25 @@ export const login = async (req, res) => {
     } catch (err) {
         res.status(500).json({ success: false, message: err.message });
     }
-}
+};
+
+export const profile = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select("-password");
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        res.status(200).json({
+            success: true,
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email
+            }
+        });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
