@@ -40,9 +40,12 @@ export const analyzeCrop = async (req, res) => {
         }
 
         const userText = req.body.text || "";
+        const filePath = req.file.path;
 
-        const base64Image = readFileAsBase64(req.file.path);
+        // Read file as base64 (async)
+        const base64Image = await readFileAsBase64(filePath);
 
+        // Send to AI for analysis
         const analysis = await analyzeImageWithAI(
             base64Image,
             req.file.mimetype,
@@ -50,7 +53,6 @@ export const analyzeCrop = async (req, res) => {
         );
 
         const clean = analysis.replace(/```json|```/g, "");
-
         let parsed;
 
         try {
@@ -70,15 +72,16 @@ export const analyzeCrop = async (req, res) => {
             };
         }
 
-        const cloudResult = await uploadToCloud(req.file.path);
+        // Upload to Cloudinary first to get the URL
+        const cloudResult = await uploadToCloud(filePath);
 
+        // Save to DB with actual Cloudinary URL
         const analysisDoc = await Analysis.create({
             user: req.user.id,
-            imageUrl: cloudResult.secure_url,
+            imageUrl: cloudResult.secure_url, // Real URL from Cloudinary
             title: parsed.data.title,
             explanation: parsed.explanation,
             structuredData: parsed.data,
-
             messages: [
                 {
                     role: "assistant",
@@ -87,7 +90,8 @@ export const analyzeCrop = async (req, res) => {
             ]
         });
 
-        deleteFile(req.file.path)
+        // Delete file asynchronously (don't wait for it)
+        deleteFile(filePath).catch(err => console.warn("File cleanup failed:", err));
 
         res.status(200).json({
             success: true,

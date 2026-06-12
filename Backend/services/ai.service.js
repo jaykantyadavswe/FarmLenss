@@ -1,17 +1,28 @@
 import getGeminiModel from "../config/gemini.js";
 
+// Helper to add timeout to promises
+const withTimeout = (promise, ms) => {
+    return Promise.race([
+        promise,
+        new Promise((_, reject) =>
+            setTimeout(() => reject(new Error(`Gemini API timeout after ${ms}ms`)), ms)
+        )
+    ]);
+};
+
 export const analyzeImageWithAI = async (base64Image, mimeType, userText) => {
     const model = getGeminiModel();
 
-    const result = await model.generateContent([
-        {
-            inlineData: {
-                mimeType,
-                data: base64Image
-            }
-        },
-        {
-            text: `
+    const result = await withTimeout(
+        model.generateContent([
+            {
+                inlineData: {
+                    mimeType,
+                    data: base64Image
+                }
+            },
+            {
+                text: `
                 You are an expert agricultural AI.
 
                 Analyze the crop image and return response in TWO PARTS:
@@ -24,7 +35,6 @@ export const analyzeImageWithAI = async (base64Image, mimeType, userText) => {
             {
                 "explanation": "Full detailed explanation here...",
                 "data": {
-                "crop_name": "",
                 "title": "",
                 "disease": "",
                 "confidence": "",
@@ -42,8 +52,10 @@ export const analyzeImageWithAI = async (base64Image, mimeType, userText) => {
 
         User message: "${userText}"
         `
-        }
-    ]);
+            }
+        ]),
+        30000 // 30 second timeout
+    );
 
     return result.response.text();
 };
