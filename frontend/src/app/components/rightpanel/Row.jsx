@@ -1,8 +1,8 @@
 export default function DataRow({ label, value, isBadge }) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
 
-      <span className="text-gray-500 text-xs">{label}</span>
+      <span className="text-xs font-medium text-slate-500">{label}</span>
 
       {isBadge ? (
         <span className={`px-2 py-1 w-fit rounded-full text-xs font-medium ${
@@ -15,7 +15,7 @@ export default function DataRow({ label, value, isBadge }) {
           {value}
         </span>
       ) : (
-        <span className="text-gray-800">{value}</span>
+        <span className="mt-1 block text-sm font-semibold text-slate-900">{value}</span>
       )}
 
     </div>

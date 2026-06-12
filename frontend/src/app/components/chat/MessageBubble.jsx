@@ -1,42 +1,41 @@
+import Image from "next/image";
 import { Typewriter } from "./Typewriter";
 import TypingIndicator from "./TypingIndicator";
 import AnalysisCard from "./AnalysisCard";
-import RightPanel from '../rightpanel/RightPanel'
 
-export default function MessageBubble({ role, text, image, loading, analysis }) {
+export default function MessageBubble({ role, text, image, loading, analysis, title }) {
   return (
     <div
-      className={`flex flex-col gap-2 max-w-[70%] ${
-        role === "user" ? "ml-auto items-end" : "items-start"
+      className={`flex w-full flex-col gap-3 ${
+        role === "user" ? "items-end" : "items-start"
       }`}
     >
 
-      {/* 📷 Image (user side) */}
       {role === "user" && image && (
-        <img
+        <Image
           src={image}
-          alt="uploaded"
-          className="w-40 h-40 object-cover rounded-xl shadow mr-5 mt-5"
+          alt="Uploaded crop"
+          width={160}
+          height={160}
+          unoptimized
+          className="h-40 w-40 rounded-2xl object-cover shadow-sm ring-1 ring-slate-200"
         />
       )}
 
-      {/* 🤖 Loading */}
       {loading ? (
         <TypingIndicator />
       ) : (
         <>
-          {/* 🔥 ANALYSIS CARD (AI side) */}
           {analysis && (
-            <AnalysisCard data={analysis} image={image} />
+            <AnalysisCard data={analysis} image={image} title={title}/>
           )}
 
-          {/* 💬 Explanation */}
           {text && (
             <div
-              className={`p-3 rounded-xl ml-5 mr-5 ${
+              className={`max-w-[78%] rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm ${
                 role === "user"
-                  ? "bg-green-600 text-white"
-                  : "bg-white shadow"
+                  ? "bg-emerald-600 text-white"
+                  : "border border-slate-200 bg-white text-slate-700"
               }`}
             >
               {role === "assistant" ? (

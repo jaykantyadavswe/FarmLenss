@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 export default function UploadPage() {
@@ -48,7 +49,14 @@ export default function UploadPage() {
       {result && (
         <div className="mt-6 ml-3">
           {result.analysis?.imageUrl && (
-            <img src={result.analysis.imageUrl} width={200} alt="Analyzed crop" />
+            <Image
+              src={result.analysis.imageUrl}
+              alt="Analyzed crop"
+              width={200}
+              height={200}
+              unoptimized
+              className="h-auto rounded"
+            />
           )}
           <p>Title: {result.analysis?.title}</p>
           <p>Disease: {result.analysis?.structuredData?.disease}</p>

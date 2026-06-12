@@ -1,19 +1,49 @@
 "use client";
-import { useState } from "react";
-import { MdImageSearch } from "react-icons/md";
-import { LuSendHorizontal } from "react-icons/lu";
-import { RxCross2 } from "react-icons/rx";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { ImagePlus, SendHorizontal, X } from "lucide-react";
 
 
 export default function ChatInput({ onSend }) {
   const [text, setText] = useState("");
   const [image, setImage] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState("");
+  const previewUrlRef = useRef("");
+
+  useEffect(() => {
+    return () => {
+      if (previewUrlRef.current) {
+        URL.revokeObjectURL(previewUrlRef.current);
+      }
+    };
+  }, []);
+
+  const updatePreview = (file) => {
+    if (previewUrlRef.current) {
+      URL.revokeObjectURL(previewUrlRef.current);
+    }
+
+    const url = URL.createObjectURL(file);
+    previewUrlRef.current = url;
+    setPreviewUrl(url);
+  };
+
+  const clearImage = () => {
+    if (previewUrlRef.current) {
+      URL.revokeObjectURL(previewUrlRef.current);
+      previewUrlRef.current = "";
+    }
+
+    setImage(null);
+    setPreviewUrl("");
+  };
 
   // 📷 Handle Image Upload
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setImage(file);
+      updatePreview(file);
     }
   };
 
@@ -31,39 +61,44 @@ export default function ChatInput({ onSend }) {
     onSend(formData); // send to parent
 
     setText("");
-    setImage(null);
+    clearImage();
   };
 
   return (
-    <div className="mt-4 sticky bottom-0 p-5" onDragOver={(e) => e.preventDefault()}
+    <div className="border-t border-slate-200 bg-white/95 p-5" onDragOver={(e) => e.preventDefault()}
       onDrop={(e) => {
         e.preventDefault();
         const file = e.dataTransfer.files[0];
-        if (file) setImage(file);
+        if (file) {
+          setImage(file);
+          updatePreview(file);
+        }
       }}>
 
       {/* 🔥 Image Preview */}
-      {image && (
-        <div className="mb-2 relative w-24 h-24">
-          <img
-            src={URL.createObjectURL(image)}
-            alt="preview"
-            className="w-full h-full object-cover rounded-lg"
+      {previewUrl && (
+        <div className="relative mb-3 h-24 w-24">
+          <Image
+            src={previewUrl}
+            alt="Selected crop preview"
+            width={96}
+            height={96}
+            unoptimized
+            className="h-full w-full rounded-2xl object-cover ring-1 ring-slate-200"
           />
           <button
-            onClick={() => setImage(null)}
-            className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1 py-1"
+            onClick={clearImage}
+            className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 text-white shadow"
           >
-          <RxCross2 />
+            <X className="h-4 w-4" />
           </button>
         </div>
       )}
 
-      {/* 🔥 Input Bar */}
-      <div className="flex items-center gap-2 bg-white/60 backdrop-blur-md border border-white/30 rounded-xl p-2 shadow">
+      <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-2 shadow-inner">
 
-        <label className="cursor-pointer px-3 text-xl">
-          <MdImageSearch />
+        <label className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl bg-white text-slate-700 shadow-sm ring-1 ring-slate-200 transition hover:text-emerald-600">
+          <ImagePlus className="h-5 w-5" />
           <input
             type="file"
             hidden
@@ -72,25 +107,23 @@ export default function ChatInput({ onSend }) {
           />
         </label>
 
-        {/* ✍️ Text Input */}
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="flex-1 bg-transparent outline-none px-2"
-          placeholder="Ask about your crop..."
+          className="min-w-0 flex-1 bg-transparent px-1 text-sm text-slate-900 outline-none placeholder:text-slate-400"
+          placeholder="Describe symptoms, crop name, or location..."
         />
 
         <button
           onClick={handleSend}
-          className="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg"
+          className="flex h-11 w-14 items-center justify-center rounded-xl bg-emerald-600 text-white shadow-sm transition hover:bg-emerald-500"
         >
-        <LuSendHorizontal />
+          <SendHorizontal className="h-5 w-5" />
         </button>
       </div>
 
-      {/* 💡 Hint */}
-      <p className="text-xs text-gray-500 mt-1">
-        Drag & drop or upload your infected crop image
+      <p className="mt-2 text-xs text-slate-500">
+        Drag and drop or upload a clear infected crop image.
       </p>
 
     </div>

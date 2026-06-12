@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { useState } from 'react';
 import React from 'react'
 import { PiFarmLight } from "react-icons/pi";
@@ -78,7 +79,14 @@ function LoginPage() {
                         <div className="p-5 rounded-2xl">
                             <PiFarmLight className="text-5xl text-amber-500 " />
                             <div>
-                                <img src="/Assets/farmers.jpg" className="w-lg" />
+                                <Image
+                                    src="/Assets/farmers.jpg"
+                                    alt="Farmers working in a field"
+                                    width={448}
+                                    height={320}
+                                    className="w-lg h-auto"
+                                    priority
+                                />
                             </div>
                         </div>
 

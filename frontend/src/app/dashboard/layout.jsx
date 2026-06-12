@@ -4,20 +4,16 @@ import Navbar from '../components/layout/Navbar';
 
 function DashboardLayout({children}) {
     return (
-        <div className="flex h-screen">
-
-            {/* Sidebar */}
+        <div className="flex h-screen overflow-hidden bg-slate-50 text-slate-950">
             <Sidebar />
 
-            {/* Main */}
-            <div className="flex-1 flex flex-col">
+            <div className="flex min-w-0 flex-1 flex-col">
                 <Navbar />
 
-                <main className="flex-1 flex gap-4 p-4 overflow-hidden">
+                <main className="flex min-h-0 flex-1 overflow-hidden p-5">
                     {children}
                 </main>
             </div>
-
         </div>
     )
 }

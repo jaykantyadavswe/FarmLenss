@@ -1,23 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Image, LogOut, User } from "lucide-react";
 import ChatContainer from "../components/chat/ChatContainer";
 import RightPanel from "../components/rightpanel/RightPanel";
 
 export default function Dashboard() {
-  const [history, setHistory] = useState([]);
-  return (
-    <>
-      {/* Chat Section */}
-      <div className="flex-[3] bg-white/40 backdrop-blur-lg rounded-2xl shadow flex flex-col overflow-hidden">
-        <ChatContainer />
-      </div>
+  const [analysisData, setAnalysisData] = useState(null);
 
-      {/* Right Panel */}
-      <div className="flex-[1] bg-white/40 backdrop-blur-lg rounded-2xl p-4 shadow">
-        <RightPanel />
-      </div>
-    </>
+  return (
+    <div className="grid h-full min-h-0 w-full min-w-0 grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
+      <section className="min-h-0 min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <ChatContainer onAnalysisUpdate={setAnalysisData} />
+      </section>
+
+      <aside className="min-h-0 min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <RightPanel analysis={analysisData} />
+      </aside>
+    </div>
   );
 }

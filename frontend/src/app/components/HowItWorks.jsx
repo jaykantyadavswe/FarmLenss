@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { HiOutlineUpload, HiOutlineDownload } from "react-icons/hi";
 import { FaLeaf } from "react-icons/fa";
@@ -44,8 +45,12 @@ export default function HowItWorks() {
             <AiOutlineCloudUpload className="w-10 h-10 text-green-500" />
             <p className="text-gray-400">Drag & Drop Image</p>
 
-            <img
+            <Image
               src="https://plus.unsplash.com/premium_photo-1687880582685-b33bbca934b2?q=80&w=1040&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Healthy crop leaf preview"
+              width={112}
+              height={112}
+              unoptimized
               className="w-28 h-28 object-cover rounded"
             />
           </div>
@@ -79,8 +84,12 @@ export default function HowItWorks() {
 
               <div className="absolute w-44 h-44 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
 
-              <img
+              <Image
                 src="https://plus.unsplash.com/premium_photo-1687880582685-b33bbca934b2?q=80&w=1040&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Crop image being analyzed"
+                width={112}
+                height={112}
+                unoptimized
                 className="w-28 h-28 object-cover rounded-full border-4 border-white shadow"
               />
             </div>
@@ -116,8 +125,12 @@ export default function HowItWorks() {
           {/* Image + Info */}
           <div className="flex gap-4 mb-4 flex-1">
 
-            <img
+            <Image
               src="https://plus.unsplash.com/premium_photo-1687880582685-b33bbca934b2?q=80&w=1040&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Analyzed crop result preview"
+              width={96}
+              height={96}
+              unoptimized
               className="w-24 h-24 object-cover rounded-xl"
             />
 
