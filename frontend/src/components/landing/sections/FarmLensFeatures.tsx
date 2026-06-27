@@ -77,7 +77,7 @@ export default function FarmLensFeatures() {
   ];
 
   return (
-    <section className="relative bg-[#060c07] text-slate-100 py-24 px-4 sm:px-6 lg:px-8 overflow-hidden selection:bg-emerald-500/30 selection:text-emerald-300">
+    <section className="relative bg-[#060c07] text-slate-100 px-4 sm:px-6 lg:px-8 overflow-hidden selection:bg-emerald-500/30 selection:text-emerald-300">
       
       {/* Decorative Grid Mesh Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f2012_1px,transparent_1px),linear-gradient(to_bottom,#0f2012_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] opacity-40 pointer-events-none" />
@@ -97,7 +97,7 @@ export default function FarmLensFeatures() {
             Engineered for Precision Agriculture
           </h2>
           <p className="text-base sm:text-lg text-slate-400">
-            A comprehensive analytical ecosystem built to diagnose, predict, and mitigate biological threats across your entire agricultural footprint[cite: 16].
+            A comprehensive analytical ecosystem built to diagnose, predict, and mitigate biological threats across your entire agricultural footprint.
           </p>
         </div>
 

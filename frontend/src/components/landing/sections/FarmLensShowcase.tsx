@@ -39,7 +39,7 @@ export default function FarmLensShowcase() {
             The Operating System for Modern Agronomy
           </h2>
           <p className="text-base sm:text-lg text-slate-400">
-            A real-time look into the integrated diagnostics workflow—fusing computer vision with conversational intelligence[cite: 72].
+            A real-time look into the integrated diagnostics workflow—fusing computer vision with conversational intelligence.
           </p>
         </div>
 

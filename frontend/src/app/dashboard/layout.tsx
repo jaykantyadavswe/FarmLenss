@@ -1,12 +1,22 @@
 "use client"
 
 import Sidebar from "@/components/dashboard/Sidebar"
-import Navbar from "@/components/dashboard/Navbar"
-import React from "react"
+import { useRouter } from "next/navigation";
+import React,{ useEffect } from "react";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     const [isDarkMode, setIsDarkMode] = React.useState(false);
     const [, setIsMobileOpen] = React.useState(false);
+
+    const router = useRouter();
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            router.replace("/auth");
+        }
+    }, []);
 
     return (
         <div className="flex h-screen">

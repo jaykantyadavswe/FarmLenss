@@ -108,7 +108,7 @@ export default function FarmLensNavbar() {
 
             {/* Ghost Login Mechanism */}
             <a 
-              href="#login"
+              href="/auth"
               className="text-xs font-semibold text-slate-400 hover:text-white transition-colors px-3 py-2 cursor-pointer"
             >
               Log in
@@ -116,7 +116,7 @@ export default function FarmLensNavbar() {
 
             {/* High-Impact Glowing Emerald Button Trigger */}
             <a
-              href="#get-started"
+              href="/auth"
               className="relative inline-flex items-center justify-center gap-1.5 px-4.5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 font-semibold text-xs text-[#060c07] shadow-[0_4px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_4px_25px_rgba(16,185,129,0.4)] transition-all cursor-pointer group active:scale-[0.98]"
             >
               <span>Get Started</span>
