@@ -15,7 +15,8 @@ import {
   ShieldCheck,
   Eye,
   EyeOff,
-  Loader2
+  Loader2,
+  Leaf
 } from 'lucide-react';
 
 export default function FarmLensAuth() {
@@ -96,13 +97,13 @@ export default function FarmLensAuth() {
   };
 
   return (
-    <main className="min-h-screen bg-[#060c07] text-slate-200 font-sans overflow-hidden selection:bg-emerald-500/30 selection:text-emerald-300">
+    <main className="min-h-screen bg-[#000] text-slate-200 font-sans overflow-hidden selection:bg-emerald-500/30 selection:text-emerald-300">
       <section className="flex flex-col justify-center items-center px-4 sm:px-8 lg:px-16 py-8 relative">
         <div className="relative z-10 mb-5 flex items-center gap-2.5 font-bold text-white text-lg tracking-tight select-none">
-          <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-            <Sprout className="w-4.5 h-4.5 text-emerald-400" />
+          <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+            <Leaf className="w-4.5 h-4.5 text-emerald-400" />
           </div>
-          <span className="bg-gradient-to-b from-white to-slate-200 bg-clip-text text-transparent">FarmLens</span>
+          <span className="bg-gradient-to-b from-white to-green-500 bg-clip-text text-transparent">FarmLens</span>
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,#112515_0%,transparent_50%)] lg:hidden opacity-40 pointer-events-none" />
 
@@ -118,12 +119,12 @@ export default function FarmLensAuth() {
         </div>
 
         {/* CORE INTERACTIVE LAYOUT CARD CAPSULE */}
-        <div className="w-full max-w-md bg-slate-950/40 lg:bg-slate-950/20 border border-slate-900 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl relative">
+        <div className="w-full max-w-md bg-slate-950/40 lg:bg-slate-950/20 border border-green-800 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl relative">
 
           {/* Desktop Heading Metadata Segment */}
           <div className="hidden lg:block space-y-1 mb-8">
-            <h2 className="text-xl font-bold tracking-tight text-white">Welcome to FarmLens</h2>
-            <p className="text-xs text-slate-500 font-medium">AI-powered farming intelligence</p>
+            <h2 className="text-xl font-bold tracking-tight text-green-400">Welcome to FarmLens</h2>
+            <p className="text-xs text-white font-medium">AI-powered farming intelligence</p>
           </div>
 
           {/* ANIMATED MODE TAB SELECTOR SWITCHER */}
@@ -235,7 +236,7 @@ export default function FarmLensAuth() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 disabled:bg-emerald-600/50 text-xs font-bold text-[#060c07] shadow-[0_4px_20px_rgba(16,185,129,0.2)] hover:shadow-[0_4px_25px_rgba(16,185,129,0.35)] disabled:shadow-none transition-all cursor-pointer group disabled:cursor-not-allowed select-none active:scale-[0.99]"
+              className="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-green-500 hover:bg-green-600 disabled:bg-green-600/50 text-xs font-bold text-[#060c07] shadow-[0_4px_20px_rgba(16,185,129,0.2)] hover:shadow-[0_4px_25px_rgba(16,185,129,0.35)] disabled:shadow-none transition-all cursor-pointer group disabled:cursor-not-allowed select-none active:scale-[0.99]"
             >
               {isLoading ? (
                 <Loader2 className="w-4 h-4 animate-spin text-[#060c07]" />

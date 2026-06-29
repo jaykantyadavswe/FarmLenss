@@ -1,2 +1,8 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-heading: var(--font-manrope);
+  --font-mono: var(--font-geist-mono);
+}
+

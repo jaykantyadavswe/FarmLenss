@@ -10,7 +10,8 @@ import {
   ArrowRight, 
   Activity, 
   Zap, 
-  MessageSquare 
+  MessageSquare ,
+  ChevronRight 
 } from 'lucide-react';
 
 export default function FarmLensHero() {
@@ -22,7 +23,7 @@ export default function FarmLensHero() {
       
       {/* Gradient Glowing Orbs */}
       {/* <div className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse duration-[8000ms]" /> */}
-      {/* <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[100px] pointer-events-none" /> */}
+      <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Hero Container */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 text-center">
@@ -33,7 +34,7 @@ export default function FarmLensHero() {
           <span>Next-Gen Agricultural Intelligence Platform</span>
           <span className="w-1 h-1 rounded-full bg-emerald-500" />
           <span className="text-emerald-500 flex items-center gap-0.5 cursor-pointer hover:underline font-semibold">
-            v2.0 Live <ArrowRight className="w-3 h-3 inline" />
+            Live <ArrowRight className="w-3 h-3 inline" />
           </span>
         </div>
 
@@ -49,7 +50,7 @@ export default function FarmLensHero() {
         </h1>
 
         {/* Supporting Text */}
-        <p className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
+        <p className="text-base italic sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10 ">
           Upload a crop image and receive instant AI-powered diagnosis, treatment recommendations, prevention strategies, and expert farming guidance.
         </p>
 
@@ -59,8 +60,8 @@ export default function FarmLensHero() {
             type="button"
             className="group relative w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl font-medium text-white shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_rgba(16,185,129,0.5)] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden"
           >
-            <Upload className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
-            <span>Start Free Analysis</span>
+            <span>Get Started</span>
+            <ChevronRight className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
           
           <button 
