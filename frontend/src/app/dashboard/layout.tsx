@@ -1,40 +1,29 @@
-"use client"
+import type { ReactNode } from "react";
 
-import Sidebar from "@/components/dashboard/Sidebar"
-import { useRouter } from "next/navigation";
-import React,{ useEffect } from "react";
+import Sidebar from "./components/sidebar/Sidebar";
+import ReportPanel from "./components/report/ReportPanel";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-    const [isDarkMode, setIsDarkMode] = React.useState(false);
-    const [, setIsMobileOpen] = React.useState(false);
+interface DashboardLayoutProps {
+  children: ReactNode;
+}
 
-    const router = useRouter();
+export default function DashboardLayout({
+  children,
+}: DashboardLayoutProps) {
+  return (
+    <main className="grid h-screen grid-cols-[280px_1fr_380px] overflow-hidden bg-zinc-100">
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
+      {/* Left Sidebar */}
+      <Sidebar />
 
-        if (!token) {
-            router.replace("/auth");
-        }
-    }, []);
+      {/* Dynamic Page Content */}
+      <section className="overflow-hidden">
+        {children}
+      </section>
 
-    return (
-        <div className="flex h-screen">
-            {/* Sidebar expects several props from parent; suppress type checking here and let Sidebar manage its own state internally or via context */}
-            {/* @ts-ignore */}
-            <Sidebar />
+      {/* Right Report Panel */}
+      <ReportPanel />
 
-            <div className="flex-1 flex flex-col">
-                {/* <Navbar
-                    isDarkMode={isDarkMode}
-                    setIsDarkMode={setIsDarkMode}
-                    setIsMobileOpen={setIsMobileOpen}
-                /> */}
-
-                <main className="flex-1 overflow-hidden">
-                    {children}
-                </main>
-            </div>
-        </div>
-    );
+    </main>
+  );
 }

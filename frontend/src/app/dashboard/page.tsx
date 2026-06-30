@@ -1,10 +1,5 @@
-
-import FarmLensDashboard from "@/components/dashboard/DashboardLayout";
+import ChatWindow from "./components/chat/ChatWindow";
 
 export default function DashboardPage() {
-  return (
-    <div className="h-full flex">
-      <FarmLensDashboard />
-    </div>
-  );
+  return <ChatWindow />;
 }
