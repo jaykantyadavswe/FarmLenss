@@ -1,29 +1,9 @@
-import type { ReactNode } from "react";
-
-import Sidebar from "./components/sidebar/Sidebar";
-import ReportPanel from "./components/report/ReportPanel";
-
-interface DashboardLayoutProps {
-  children: ReactNode;
-}
+import DashboardShell from "./components/layout/DashboardShell";
 
 export default function DashboardLayout({
   children,
-}: DashboardLayoutProps) {
-  return (
-    <main className="grid h-screen grid-cols-[280px_1fr_380px] overflow-hidden bg-zinc-100">
-
-      {/* Left Sidebar */}
-      <Sidebar />
-
-      {/* Dynamic Page Content */}
-      <section className="overflow-hidden">
-        {children}
-      </section>
-
-      {/* Right Report Panel */}
-      <ReportPanel />
-
-    </main>
-  );
+}: {
+  children: React.ReactNode;
+}) {
+  return <DashboardShell>{children}</DashboardShell>;
 }

@@ -6,40 +6,52 @@ export interface HistoryItem {
   time: string;
 }
 
-export const historyData: HistoryItem[] = [
+import {
+  LayoutDashboard,
+  History,
+  MessageSquare,
+  Settings,
+  ScanSearch,
+  FileChartColumn,
+  TrendingUpDown
+} from "lucide-react";
+
+import { SidebarItemType } from "./types";
+
+export const menuItems: SidebarItemType[] = [
   {
-    id: "1",
-    title: "Tomato Disease Detection",
-    crop: "Tomato",
-    dateGroup: "Today",
-    time: "2 min ago",
+    title: "Dashboard",
+    href: "/dashboard",
+    icon: LayoutDashboard,
   },
   {
-    id: "2",
-    title: "Wheat Rust Analysis",
-    crop: "Wheat",
-    dateGroup: "Today",
-    time: "45 min ago",
+    title: "Analysis Crop",
+    href: "/dashboard/analysiscrop",
+    icon: ScanSearch,
   },
   {
-    id: "3",
-    title: "Rice Brown Spot",
-    crop: "Rice",
-    dateGroup: "Yesterday",
-    time: "Yesterday",
+    title: "AI Assistant",
+    href: "#",
+    icon: MessageSquare,
   },
   {
-    id: "4",
-    title: "Cotton Leaf Curl",
-    crop: "Cotton",
-    dateGroup: "Previous 7 Days",
-    time: "3 days ago",
+    title: "Reports",
+    href: "/dashboard/repors",
+    icon: FileChartColumn,
   },
   {
-    id: "5",
-    title: "Corn Leaf Blight",
-    crop: "Corn",
-    dateGroup: "Previous 7 Days",
-    time: "5 days ago",
+    title: "History",
+    href: "/dashboard/settings",
+    icon: History,
+  },
+  {
+    title: "Market",
+    href: "/dashboard/settings",
+    icon: TrendingUpDown,
+  },
+  {
+    title: "Setting",
+    href: "/dashboard/settings",
+    icon: Settings,
   },
 ];

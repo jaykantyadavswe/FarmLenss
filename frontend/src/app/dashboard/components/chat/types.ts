@@ -1,10 +1,8 @@
-export interface ChatMessage {
-    id: string;
-    role: "user" | "assistant";
+import { LucideIcon } from "lucide-react";
 
-    text: string;
-
-    image?: string;
-
-    createdAt: string;
+export interface PromptItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
 }

@@ -7,7 +7,9 @@ export default function ChatHeader() {
       <div className="flex items-center gap-4">
 
         <div className="rounded-xl bg-green-600 p-3 text-white">
+
           <Leaf size={20} />
+
         </div>
 
         <div>

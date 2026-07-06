@@ -1,34 +1,20 @@
 import SidebarHeader from "./SidebarHeader";
-import NewAnalysisButton from "./NewAnalysisButton";
-import SidebarSearch from "./SidebarSearch";
-import SidebarHistory from "./SidebarHistory";
 import SidebarFooter from "./SidebarFooter";
+import SidebarMenu from "./SidebarMenu";
+
 
 export default function Sidebar() {
   return (
-    <aside className="flex h-screen w-[280px] flex-col border-r bg-white">
-
-      {/* Logo */}
-      <SidebarHeader />
-
-      {/* New Analysis */}
-      <div className="p-4">
-        <NewAnalysisButton />
+    <aside className="flex h-full w-65 grid grid-cols-1 grid-row-3 bg-white">
+      <div className="">
+        <SidebarHeader />
       </div>
-
-      {/* Search */}
-      <div className="px-4 pb-4">
-        <SidebarSearch />
+      <div className=" ">
+        <SidebarMenu />
       </div>
-
-      {/* Scrollable History */}
-      <div className="flex-1 overflow-y-auto px-4">
-        <SidebarHistory />
+      <div className="row-spam-2 row-start-11 row-end-12">
+        <SidebarFooter />
       </div>
-
-      {/* User */}
-      <SidebarFooter />
-
     </aside>
   );
 }

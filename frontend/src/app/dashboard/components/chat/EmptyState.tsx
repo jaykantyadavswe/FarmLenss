@@ -2,22 +2,22 @@ import PromptSuggestions from "./PromptSuggestions";
 
 export default function EmptyState() {
   return (
-    <main className="flex flex-1 items-center justify-center">
+    <div className="mx-auto w-full max-w-4xl px-8 text-center">
 
-      <div className="w-full max-w-3xl px-8 text-center">
-
-        <h1 className="text-4xl font-bold">
-          🌱 FarmLens AI
-        </h1>
-
-        <p className="mt-4 text-zinc-500">
-          Upload a crop image or ask anything about farming.
-        </p>
-
-        <PromptSuggestions />
-
+      <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-green-100 text-5xl">
+        🌱
       </div>
 
-    </main>
+      <h1 className="mt-8 text-5xl font-bold">
+        FarmLens AI
+      </h1>
+
+      <p className="mt-5 text-lg text-zinc-500">
+        Upload a crop image or ask anything about your crops.
+      </p>
+
+      <PromptSuggestions />
+
+    </div>
   );
 }

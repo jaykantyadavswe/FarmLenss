@@ -1,8 +1,8 @@
-import { Leaf } from "lucide-react";
+import { Leaf, Plus } from "lucide-react";
 
 export default function SidebarHeader() {
   return (
-    <div className="border-b p-5">
+    <header className="p-5">
 
       <div className="flex items-center gap-3">
 
@@ -14,11 +14,11 @@ export default function SidebarHeader() {
 
         <div>
 
-          <h2 className="text-lg font-bold">
+          <h2 className="font-bold text-xl">
             FarmLens
           </h2>
 
-          <p className="text-xs text-zinc-500">
+          <p className="text-sm text-zinc-500">
             AI Crop Assistant
           </p>
 
@@ -26,6 +26,6 @@ export default function SidebarHeader() {
 
       </div>
 
-    </div>
+    </header>
   );
 }

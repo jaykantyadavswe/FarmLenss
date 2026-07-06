@@ -1,21 +1,15 @@
-const prompts = [
-  "🍅 Detect Tomato Disease",
-  "🌾 Wheat Rust Analysis",
-  "🌱 Plant Health",
-  "💧 Irrigation Advice",
-];
+import PromptCard from "./PromptCard";
+import { promptSuggestions } from "./promptData";
 
 export default function PromptSuggestions() {
   return (
-    <div className="mt-12 grid gap-4 md:grid-cols-2">
+    <div className="mt-12 grid gap-5 md:grid-cols-2">
 
-      {prompts.map((prompt) => (
-        <button
-          key={prompt}
-          className="rounded-xl border bg-white p-5 text-left transition hover:border-green-500 hover:shadow-md"
-        >
-          {prompt}
-        </button>
+      {promptSuggestions.map((prompt) => (
+        <PromptCard
+          key={prompt.id}
+          prompt={prompt}
+        />
       ))}
 
     </div>

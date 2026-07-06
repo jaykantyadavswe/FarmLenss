@@ -8,9 +8,9 @@ import { report } from "./reportData";
 
 export default function ReportPanel() {
   return (
-    <aside className="flex h-full w-[380px] flex-col border-l bg-zinc-50">
+    <aside className="flex h-full w-[380px] flex-col bg-zinc-50">
 
-      <ReportHeader />
+      {/* <ReportHeader /> */}
 
       <div className="flex-1 space-y-6 overflow-y-auto p-6">
 
