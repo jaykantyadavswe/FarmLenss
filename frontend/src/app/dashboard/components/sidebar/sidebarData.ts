@@ -31,22 +31,22 @@ export const menuItems: SidebarItemType[] = [
   },
   {
     title: "AI Assistant",
-    href: "#",
+    href: "/dashboard/aiAssistant",
     icon: MessageSquare,
   },
   {
     title: "Reports",
-    href: "/dashboard/repors",
+    href: "/dashboard/report",
     icon: FileChartColumn,
   },
   {
     title: "History",
-    href: "/dashboard/settings",
+    href: "/dashboard/history",
     icon: History,
   },
   {
     title: "Market",
-    href: "/dashboard/settings",
+    href: "/dashboard/markets",
     icon: TrendingUpDown,
   },
   {
