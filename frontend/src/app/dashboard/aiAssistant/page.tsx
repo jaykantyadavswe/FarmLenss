@@ -1,7 +1,7 @@
+import AIAssistant from "../components/Assistant/AIAssistant";
+
 export default function Sidebar() {
   return (
-    <div>
-        Ai Assistant
-    </div>
+    <AIAssistant/>
   );
 }
