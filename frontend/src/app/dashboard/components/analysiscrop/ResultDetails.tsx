@@ -2,15 +2,13 @@ import {
   ArrowRight,
   BadgeCheck,
   Brain,
-  Leaf,
 } from "lucide-react";
+
+import Link from "next/link";
 
 export default function ResultDetails() {
   return (
     <section className="rounded-3xl border border-dashed border-green-300 bg-gradient-to-br from-green-50 to-white p-6 shadow-sm">
-        {/* <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-          3
-        </div> */}
       <div className="flex items-center justify-center gap-3">
 
         <div className="rounded-xl bg-green-100 p-3 text-green-600">
@@ -79,7 +77,7 @@ export default function ResultDetails() {
 
       </div>
 
-      
+
 
       {/* Footer */}
 
@@ -101,7 +99,9 @@ export default function ResultDetails() {
           hover:bg-green-700
         "
       >
-        View Full Report
+        <Link href="/dashboard/report">
+          View Full Report
+        </Link>
 
         <ArrowRight size={18} />
 

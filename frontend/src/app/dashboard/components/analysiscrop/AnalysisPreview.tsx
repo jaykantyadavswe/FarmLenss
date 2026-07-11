@@ -1,15 +1,8 @@
-import { ImagePlus } from "lucide-react";
-
 import { ArrowRight, BrainCircuit, Cpu } from "lucide-react";
 
 export default function AnalysisPreview() {
   return (
     <section className="rounded-3xl border border-dashed border-green-300 bg-gradient-to-br from-green-50 to-white p-6 shadow-sm transition-all duration-300 hover:border-green-500 hover:shadow-lg">
-
-
-      {/* <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-        2
-      </div> */}
 
       <div className="flex items-center justify-center gap-3">
 

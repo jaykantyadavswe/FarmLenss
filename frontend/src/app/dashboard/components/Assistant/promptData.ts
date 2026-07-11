@@ -5,7 +5,12 @@ import {
   FlaskConical,
 } from "lucide-react";
 
-import { PromptItem } from "./types";
+type PromptItem = {
+  id: string;
+  title: string;
+  description: string;
+  icon: typeof Leaf;
+};
 
 export const promptSuggestions: PromptItem[] = [
   {

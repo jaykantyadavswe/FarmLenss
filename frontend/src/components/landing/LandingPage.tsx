@@ -23,7 +23,7 @@ export default function LandingPage() {
       <ProblemSection/>
       <FeaturesSection/>
       <WorkflowSection/>
-      <DashboardShowcase/>
+      {/* <DashboardShowcase/> */}
       <TechStack/>
       {/* <ArchitectureSection/> */}
       <CTASection/>

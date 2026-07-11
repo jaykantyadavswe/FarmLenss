@@ -1,11 +1,4 @@
 import {
-    //   Github,
-    //   Linkedin,
-    Mail,
-    Globe,
-} from "lucide-react";
-
-import {
   FaGithub,
   FaLinkedin,
   FaGlobe,
@@ -26,8 +19,14 @@ export const footerLinks = [
             "Features",
             "Dashboard",
             "Technology",
-            "Architecture",
+            "How It Works",
         ],
+        href: [
+          "#features",
+          "/dashboard",
+          "#technology",
+          "#how-it-works",
+        ]
     },
     {
         title: "Resources",
@@ -37,6 +36,12 @@ export const footerLinks = [
             "API",
             "Project Report",
         ],
+        href: [
+          "https://github.com/jaykantyadavswe/FarmLenss/blob/main/README.md",
+          "https://github.com/jaykantyadavswe/FarmLenss/tree/main",
+          "https://aistudio.google.com/app/api-keys",
+          "https://github.com/jaykantyadavswe/FarmLenss/blob/main/README.md"
+        ]
     },
     {
         title: "Company",
@@ -52,18 +57,18 @@ export const footerLinks = [
 export const socialLinks: SocialLink[] = [
   {
     icon: FaGithub,
-    href: "https://github.com/yourusername",
+    href: "https://github.com/jaykantyadavswe",
   },
   {
     icon: FaLinkedin,
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/jaykantkumar/",
   },
   {
     icon: FaGlobe,
-    href: "https://yourportfolio.com",
+    href: "https://github.com/jaykantyadavswe",
   },
   {
     icon: MdEmail,
-    href: "mailto:your@email.com",
+    href: "mailto:Jaykant.yadav.cse@email.com",
   },
 ];

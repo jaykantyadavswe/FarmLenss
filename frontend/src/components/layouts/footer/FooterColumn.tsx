@@ -1,11 +1,13 @@
 interface Props {
   title: string;
   links: string[];
+  href: string[];
 }
 
 export default function FooterColumn({
   title,
   links,
+  href
 }: Props) {
   return (
     <div>
@@ -16,10 +18,10 @@ export default function FooterColumn({
 
       <div className="mt-5 space-y-3">
 
-        {links.map((link) => (
+        {links.map((link, index) => (
           <a
             key={link}
-            href="#"
+            href={href[index]}
             className="block text-muted-foreground transition hover:text-green-600"
           >
             {link}

@@ -58,11 +58,11 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-4 lg:flex">
 
-            <button className="rounded-xl border border-green-600 px-5 py-2 font-medium hover:bg-green-700 hover:text-white" onClick={() => router.push("/auth")}>
+            <button className="rounded-xl border border-green-600 px-5 py-2 font-medium hover:bg-green-700 hover:text-white cursor-pointer" onClick={() => router.push("/auth")}>
               Login
             </button>
 
-            <button className="rounded-xl bg-green-600 px-5 py-2 font-medium text-white transition hover:bg-green-700" onClick={() => router.push("/dashboard")}>
+            <button className="rounded-xl bg-green-600 px-5 py-2 font-medium text-white transition hover:bg-green-700 cursor-pointer" onClick={() => router.push("/dashboard")}>
               Get Started
             </button>
 

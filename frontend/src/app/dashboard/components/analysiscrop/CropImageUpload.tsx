@@ -36,12 +36,6 @@ export default function CropImageUpload() {
   return (
     <section className="rounded-3xl border border-dashed border-green-300 bg-gradient-to-br from-green-50 to-white p-5 shadow-sm transition-all duration-300 hover:border-green-500 hover:shadow-lg">
 
-      {/* Step */}
-
-      {/* <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-white font-bold">
-        1
-      </div> */}
-
       <div className="flex items-center justify-center gap-3">
       
               <div className="rounded-xl bg-green-100 p-3 text-green-600">

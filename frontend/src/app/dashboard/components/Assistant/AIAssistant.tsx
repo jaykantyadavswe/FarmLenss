@@ -1,4 +1,3 @@
-import AssistantHeader from "./AssistantHeader";
 import SuggestedQuestions from "./SuggestedQuestions";
 import ChatInput from "./ChatInput";
 import ChatMessages from "./ChatMessagess";

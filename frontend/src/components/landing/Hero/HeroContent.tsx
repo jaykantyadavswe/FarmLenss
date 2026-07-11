@@ -1,4 +1,5 @@
 'use client'
+import { Sprout } from 'lucide-react';
 import HeroStats from "./HeroStats";
 import { useRouter } from "next/navigation";
 export default function HeroContent() {
@@ -9,7 +10,7 @@ export default function HeroContent() {
 
       <div className="inline-flex items-center rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
 
-        🌱 AI-Powered Agriculture Platform
+        <Sprout /> AI-Powered Agriculture Platform
 
       </div>
 
@@ -38,13 +39,13 @@ export default function HeroContent() {
 
       <div className="flex flex-wrap gap-4">
 
-        <button className="rounded-xl bg-green-600 px-8 py-4 font-medium text-white transition hover:bg-green-700" onClick={() => router.push("/dashboard")}>
+        <button className="rounded-xl bg-green-600 px-8 py-4 font-medium text-white transition hover:bg-green-700 cursor-progress" onClick={() => router.push("/dashboard")}>
 
           Start Free Analysis
 
         </button>
 
-        <button className="rounded-xl border px-8 py-4 font-medium transition hover:bg-gray-100">
+        <button className="rounded-xl border px-8 py-4 font-medium transition hover:bg-gray-100 cursor-not-allowed">
 
           View Live Demo
 

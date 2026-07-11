@@ -18,8 +18,6 @@ export default function Footer() {
 
                 <div className="grid gap-16 lg:grid-cols-[2fr_1fr_1fr_1fr]">
 
-                    {/* Left */}
-
                     <div>
 
                         <div className="flex items-center gap-3">
@@ -74,7 +72,9 @@ export default function Footer() {
                     {footerLinks.map((section) => (
                         <FooterColumn
                             key={section.title}
-                            {...section}
+                            title={section.title}
+                            links={section.links}
+                            href={section.href ?? []}
                         />
                     ))}
 
@@ -84,7 +84,7 @@ export default function Footer() {
 
                     <p>
 
-                        © 2026 FarmLens. All Rights Reserved.
+                        &copy; 2026 FarmLens. All Rights Reserved.
 
                     </p>
 

@@ -1,7 +1,4 @@
 import {
-  ArrowRight,
-  BadgeCheck,
-  Brain,
   Leaf,
 } from "lucide-react";
 export default function Discription(){

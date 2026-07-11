@@ -1,4 +1,10 @@
-import { PromptItem } from "./types";
+import { ComponentType } from "react";
+
+interface PromptItem {
+  icon: ComponentType<{ size?: number }>;
+  title: string;
+  description?: string;
+}
 
 interface Props {
   prompt: PromptItem;
