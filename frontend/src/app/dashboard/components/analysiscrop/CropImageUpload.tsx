@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { ImagePlus, UploadCloud, RefreshCcw } from "lucide-react";
+import { ImagePlus, UploadCloud, RefreshCcw, CloudUpload } from "lucide-react";
 
 import {
   Select,
@@ -38,9 +38,29 @@ export default function CropImageUpload() {
 
       {/* Step */}
 
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-white font-bold">
+      {/* <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-white font-bold">
         1
-      </div>
+      </div> */}
+
+      <div className="flex items-center justify-center gap-3">
+      
+              <div className="rounded-xl bg-green-100 p-3 text-green-600">
+                <CloudUpload size={22} />
+              </div>
+      
+              <div>
+      
+                <h2 className="text-lg font-semibold">
+                  Uplaod Crop Image
+                </h2>
+      
+                <p className="text-sm text-zinc-500">
+                  Share Crop Image With AI
+                </p>
+      
+              </div>
+      
+            </div>
 
       {/* Upload */}
 

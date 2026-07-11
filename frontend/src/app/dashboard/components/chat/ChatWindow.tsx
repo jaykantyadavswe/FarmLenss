@@ -1,7 +1,7 @@
 "use client";
 
 import ChatInput from "./ChatInput";
-import ChatMessages from "./ChatMessages";
+import ChatMessages from "../Assistant/ChatMessagess";
 
 export default function ChatWindow() {
   return (

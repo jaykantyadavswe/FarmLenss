@@ -7,11 +7,11 @@ import {
 
 export default function ResultDetails() {
   return (
-    <section className="rounded-3xl border bg-white p-6 shadow-sm">
-
-      {/* Header */}
-
-      <div className="flex items-center gap-3">
+    <section className="rounded-3xl border border-dashed border-green-300 bg-gradient-to-br from-green-50 to-white p-6 shadow-sm">
+        {/* <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+          3
+        </div> */}
+      <div className="flex items-center justify-center gap-3">
 
         <div className="rounded-xl bg-green-100 p-3 text-green-600">
           <Brain size={22} />
@@ -31,7 +31,6 @@ export default function ResultDetails() {
 
       </div>
 
-      {/* Details */}
 
       <div className="mt-6 space-y-4">
 
@@ -80,36 +79,13 @@ export default function ResultDetails() {
 
       </div>
 
-      {/* Summary */}
-
-      <div className="mt-6 rounded-2xl bg-zinc-50 p-4">
-
-        <div className="mb-3 flex items-center gap-2">
-
-          <Leaf
-            size={18}
-            className="text-green-600"
-          />
-
-          <h3 className="font-medium">
-            AI Summary
-          </h3>
-
-        </div>
-
-        <p className="text-sm leading-7 text-zinc-600">
-          Early Blight detected with high confidence.
-          Immediate fungicide treatment is recommended.
-          Monitor nearby leaves over the next 5 days.
-        </p>
-
-      </div>
+      
 
       {/* Footer */}
 
       <button
         className="
-          mt-6
+          mt-17
           flex
           w-full
           items-center

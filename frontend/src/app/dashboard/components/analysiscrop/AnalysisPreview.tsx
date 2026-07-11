@@ -1,22 +1,41 @@
 import { ImagePlus } from "lucide-react";
 
-import { ArrowRight, BrainCircuit } from "lucide-react";
+import { ArrowRight, BrainCircuit, Cpu } from "lucide-react";
 
 export default function AnalysisPreview() {
   return (
-    <section className="rounded-3xl border border-dashed border-green-300 bg-gradient-to-br from-green-50 to-white p-8 shadow-sm transition-all duration-300 hover:border-green-500 hover:shadow-lg">
+    <section className="rounded-3xl border border-dashed border-green-300 bg-gradient-to-br from-green-50 to-white p-6 shadow-sm transition-all duration-300 hover:border-green-500 hover:shadow-lg">
 
-      {/* Step */}
 
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+      {/* <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
         2
+      </div> */}
+
+      <div className="flex items-center justify-center gap-3">
+
+        <div className="rounded-xl bg-green-100 p-3 text-green-600">
+          <Cpu size={22} />
+        </div>
+
+        <div>
+
+          <h2 className="text-lg font-semibold">
+            Analysis With AI
+          </h2>
+
+          <p className="text-sm text-zinc-500">
+            Start Analysis With AI
+          </p>
+
+        </div>
+
       </div>
 
       {/* Content */}
 
       <div className="mt-6 text-center">
 
-        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-100 text-green-600">
+        <div className="mx-auto flex h-16 w-20 items-center justify-center rounded-full bg-green-100 text-green-600">
           <BrainCircuit size={38} />
         </div>
 

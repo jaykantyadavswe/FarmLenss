@@ -1,36 +1,52 @@
-import ReportHeader from "./ReportHeader";
-import CropImage from "./CropImage";
-import CropInfo from "./CropInfo";
-import ConfidenceCard from "./ConfidenceCard";
-import SeverityCard from "./SeverityCard";
+
+
+import ActionButtons from "../components/reports/ActionButtons";
+import AISummary from "../components/reports/AISummary";
+import CausesCard from "../components/reports/CausesCard";
+import ConfidenceCard from "../components/reports/ConfidenceCard";
+import DiseaseOverview from "../components/reports/DiseaseOverview";
+import MedicineCard from "../components/reports/MedicineCard";
+import PreventionCard from "../components/reports/PreventionCard";
+import ReportHeader from "../components/reports/ReportHeader";
+import SeverityCard from "../components/reports/SeverityCard";
+import SimilarCases from "../components/reports/SimilarCases";
+import SymptomsCard from "../components/reports/SymptomsCard";
+import TreatmentCard from "../components/reports/TreatmentCard";
+import WeatherImpact from "../components/reports/WeatherImpact";
 
 import { report } from "./reportData";
 
-export default function ReportPanel() {
+export default function ReportPage() {
   return (
-    <aside className="flex h-full w-[380px] flex-col bg-zinc-50">
+    <div className="space-y-6 p-6">
+      <ReportHeader />
 
-      {/* <ReportHeader /> */}
+      <DiseaseOverview />
 
-      <div className="flex-1 space-y-6 overflow-y-auto p-6">
-
-        <CropImage image={report.image} />
-
-        <CropInfo
-          crop={report.crop}
-          disease={report.disease}
-        />
-
-        <ConfidenceCard
-          confidence={report.confidence}
-        />
-
-        <SeverityCard
-          severity={report.severity}
-        />
-
+      <div className="grid gap-6 lg:grid-cols-2">
+        <ConfidenceCard />
+        <AISummary />
       </div>
 
-    </aside>
+      <div className="grid gap-6 lg:grid-cols-2">
+        <SymptomsCard />
+        <CausesCard />
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <SeverityCard />
+        <WeatherImpact />
+      </div>
+
+      <TreatmentCard />
+
+      <PreventionCard />
+
+      <MedicineCard />
+
+      <SimilarCases />
+
+      <ActionButtons />
+    </div>
   );
 }

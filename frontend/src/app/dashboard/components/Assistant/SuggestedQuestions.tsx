@@ -7,7 +7,7 @@ const questions = [
 
 export default function SuggestedQuestions() {
   return (
-    <div className="flex flex-wrap gap-3 p-5">
+    <div className="flex flex-wrap gap-3 p-1 justify-center">
       {questions.map((q) => (
         <button
           key={q}

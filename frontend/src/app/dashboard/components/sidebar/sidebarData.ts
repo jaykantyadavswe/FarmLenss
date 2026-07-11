@@ -19,11 +19,11 @@ import {
 import { SidebarItemType } from "./types";
 
 export const menuItems: SidebarItemType[] = [
-  {
+  /* {
     title: "Dashboard",
     href: "/dashboard",
     icon: LayoutDashboard,
-  },
+  } */
   {
     title: "Analysis Crop",
     href: "/dashboard/analysiscrop",
@@ -44,11 +44,11 @@ export const menuItems: SidebarItemType[] = [
     href: "/dashboard/history",
     icon: History,
   },
-  {
+  /* {
     title: "Market",
     href: "/dashboard/markets",
     icon: TrendingUpDown,
-  },
+  }, */
   {
     title: "Setting",
     href: "/dashboard/settings",

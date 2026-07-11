@@ -6,7 +6,7 @@ import {
 
 export default function ChatInput() {
   return (
-    <div className="border-t bg-white p-5">
+    <div className="px-8">
 
       <div className="flex items-center gap-3 rounded-2xl border px-4 py-3">
 
