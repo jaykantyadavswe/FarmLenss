@@ -12,7 +12,6 @@ import {
   Lock,
   User,
   ArrowRight,
-  ShieldCheck,
   Eye,
   EyeOff,
   Loader2,

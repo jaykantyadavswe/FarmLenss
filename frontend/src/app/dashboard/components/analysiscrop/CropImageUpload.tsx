@@ -12,7 +12,19 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export default function CropImageUpload() {
+interface Props {
+
+  image: File | null;
+
+  setImage: (file: File) => void;
+
+  cropType: string;
+
+  setCropType: (value: string) => void;
+
+}
+
+export default function CropImageUpload({ image, setImage, cropType, setCropType }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [preview, setPreview] = useState<string>("");
@@ -27,7 +39,11 @@ export default function CropImageUpload() {
   ) => {
     const file = e.target.files?.[0];
 
-    if (!file) return;
+    if (!file) {
+      return
+    } else {
+      setImage(file)
+    };
 
     setPreview(URL.createObjectURL(file));
     setFileName(file.name);
@@ -37,24 +53,24 @@ export default function CropImageUpload() {
     <section className="rounded-3xl border border-dashed border-green-300 bg-gradient-to-br from-green-50 to-white p-5 shadow-sm transition-all duration-300 hover:border-green-500 hover:shadow-lg">
 
       <div className="flex items-center justify-center gap-3">
-      
-              <div className="rounded-xl bg-green-100 p-3 text-green-600">
-                <CloudUpload size={22} />
-              </div>
-      
-              <div>
-      
-                <h2 className="text-lg font-semibold">
-                  Uplaod Crop Image
-                </h2>
-      
-                <p className="text-sm text-zinc-500">
-                  Share Crop Image With AI
-                </p>
-      
-              </div>
-      
-            </div>
+
+        <div className="rounded-xl bg-green-100 p-3 text-green-600">
+          <CloudUpload size={22} />
+        </div>
+
+        <div>
+
+          <h2 className="text-lg font-semibold">
+            Uplaod Crop Image
+          </h2>
+
+          <p className="text-sm text-zinc-500">
+            Share Crop Image With AI
+          </p>
+
+        </div>
+
+      </div>
 
       {/* Upload */}
 
@@ -68,7 +84,7 @@ export default function CropImageUpload() {
               alt="Crop Preview"
               width={600}
               height={350}
-              className="h-72 w-full rounded-2xl object-cover"
+              className="h-52 w-full rounded-2xl object-cover"
             />
 
             <div className="flex items-center justify-between rounded-xl bg-zinc-100 p-4">

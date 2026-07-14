@@ -5,8 +5,15 @@ import {
 } from "lucide-react";
 
 import Link from "next/link";
+interface Props{
 
-export default function ResultDetails() {
+    result:any;
+
+    loading:boolean;
+
+}
+
+export default function ResultDetails({result, loading}:Props) {
   return (
     <section className="rounded-3xl border border-dashed border-green-300 bg-gradient-to-br from-green-50 to-white p-6 shadow-sm">
       <div className="flex items-center justify-center gap-3">
