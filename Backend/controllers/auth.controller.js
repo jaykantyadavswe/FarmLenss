@@ -2,10 +2,6 @@ import User from "../models/users.model.js";
 import bcrypt from 'bcrypt';
 import generateToken from "../utils/generateToken.js";
 
-export const checkActive = async (req, res) => {
-    res.send("RUNNING.........");
-}
-
 export const register = async (req, res) => {
     try {
         const { name, email, password } = req.body;

@@ -1,6 +1,6 @@
 import { jsonwebtoken } from "jsonwebtoken";
 
-const auth = (req, res, next) => {
+const protected = (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
 
@@ -28,4 +28,4 @@ const auth = (req, res, next) => {
     }
 };
 
-export default auth;
+export default protected;
